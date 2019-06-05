@@ -4,17 +4,19 @@ import {SearchComponent} from './components/search/search.component';
 import {ListViewComponent} from './components/list-view/list-view.component';
 import {DataTableComponent} from './components/data-table/data-table.component';
 import {PaginationComponent} from './components/pagination/pagination.component';
+import {RouterModule} from '@angular/router';
 
 const COMPONENTS = [
   ListViewComponent,
   SearchComponent,
   DataTableComponent,
-  PaginationComponent
+  PaginationComponent,
 ];
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   declarations: COMPONENTS,
   exports: COMPONENTS,

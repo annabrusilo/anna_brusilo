@@ -8,6 +8,8 @@ import {CharactersListComponent} from './components/characters-list/characters-l
 import {ViewComponentsModule} from '../../common/view-components/view-components.module';
 import {CharactersMainComponent} from './characters-main.component';
 import {CharactersService} from './services/characters.service';
+import {RouterModule} from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -15,6 +17,8 @@ import {CharactersService} from './services/characters.service';
     HttpClientModule,
     CharactersRoutingModule,
     ViewComponentsModule,
+    RouterModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     CharactersMainComponent,

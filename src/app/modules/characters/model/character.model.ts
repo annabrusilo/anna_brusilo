@@ -11,7 +11,7 @@ export class CharacterModel {
     species?: string;
     gender?: string;
     homeworld?: string
-  }) {
+  } = {}) {
     options = options || {};
     this.id = options.id || null;
     this.name = options.name || '';

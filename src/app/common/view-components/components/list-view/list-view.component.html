@@ -5,10 +5,15 @@
     <sl-search></sl-search>
   </div>
   <div class="col-sm-6 text-sm-right">
-    <a href="#" class="btn btn-primary mb-3">Add New</a>
+    <a routerLink="/add" routerLinkActive="active" class="btn btn-primary mb-3">Add New</a>
   </div>
 </div>
 
-<sl-data-table></sl-data-table>
+<sl-data-table
+    [rows]="data"
+    [columns]="columns"
+></sl-data-table>
 
-<sl-pagination></sl-pagination>
+<sl-pagination
+    (pageLoad)="handlePageLoad($event)"
+></sl-pagination>

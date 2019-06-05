@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'sl-data-table',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-table.component.scss']
 })
 export class DataTableComponent implements OnInit {
+  @Input() public rows: any[];
+  @Input() public columns: string[];
 
   constructor() { }
 

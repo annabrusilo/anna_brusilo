@@ -1,1 +1,5 @@
-<sl-list-view></sl-list-view>
+<sl-list-view
+    [columns]="columns"
+    [data]="characters"
+    (onPageLoad)="handlePageLoad($event)"
+></sl-list-view>

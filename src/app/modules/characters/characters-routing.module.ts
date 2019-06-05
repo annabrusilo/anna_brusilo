@@ -15,7 +15,10 @@ const routes: Routes = [{
     path: 'list',
     component: CharactersListComponent,
   }, {
-    path: 'edit',
+    path: 'add',
+    component: CharactersEditComponent,
+  }, {
+    path: 'edit/:id',
     component: CharactersEditComponent,
   }]
 }];
