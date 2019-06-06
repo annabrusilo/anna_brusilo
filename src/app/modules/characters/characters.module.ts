@@ -10,6 +10,7 @@ import {CharactersMainComponent} from './characters-main.component';
 import {CharactersService} from './services/characters.service';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CharactersFacadeService} from './services/characters-facade.service';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     CharactersListComponent,
   ],
   providers: [
+    CharactersFacadeService,
     CharactersService,
   ]
 })

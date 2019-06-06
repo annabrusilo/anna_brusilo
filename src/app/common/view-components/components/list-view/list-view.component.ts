@@ -11,6 +11,7 @@ export class ListViewComponent implements OnInit {
   @Input() public columns: string[];
 
   @Output() public pageLoad: EventEmitter<number> = new EventEmitter<number>();
+  @Output() public searchTextChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
@@ -18,5 +19,9 @@ export class ListViewComponent implements OnInit {
 
   public handlePageLoad(pageNumber: number): void {
     this.pageLoad.emit(pageNumber);
+  }
+
+  public handleSearchTextChange(searchText: string): void {
+    this.searchTextChange.emit(searchText);
   }
 }

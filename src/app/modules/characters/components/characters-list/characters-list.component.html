@@ -1,5 +1,6 @@
 <sl-list-view
     [columns]="columns"
-    [data]="characters"
-    (onPageLoad)="handlePageLoad($event)"
+    [data]="service.characters$ | async"
+    (pageLoad)="handlePageLoad($event)"
+    (searchTextChange)="handleSearchTextChange($event)"
 ></sl-list-view>

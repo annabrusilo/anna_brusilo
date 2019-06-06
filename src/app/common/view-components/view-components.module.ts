@@ -5,6 +5,7 @@ import {ListViewComponent} from './components/list-view/list-view.component';
 import {DataTableComponent} from './components/data-table/data-table.component';
 import {PaginationComponent} from './components/pagination/pagination.component';
 import {RouterModule} from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const COMPONENTS = [
   ListViewComponent,
@@ -16,6 +17,7 @@ const COMPONENTS = [
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule,
   ],
   declarations: COMPONENTS,

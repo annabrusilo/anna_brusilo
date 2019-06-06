@@ -1,4 +1,10 @@
 <div class="form-group">
   <label for="searchInput" class="sr-only">Search</label>
-  <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+  <input
+      type="text"
+      class="form-control"
+      id="searchInput"
+      placeholder="Search..."
+      [formControl]="searchTextControl"
+  >
 </div>

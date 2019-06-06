@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {CharactersService} from '../../services/characters.service';
+import {Component, OnInit} from '@angular/core';
 import {CharacterModel} from '../../model/character.model';
+import {CharactersFacadeService} from '../../services/characters-facade.service';
 
 @Component({
   selector: 'sl-characters-list',
@@ -8,20 +8,21 @@ import {CharacterModel} from '../../model/character.model';
   styleUrls: ['./characters-list.component.scss']
 })
 export class CharactersListComponent implements OnInit {
-  public characters: CharacterModel[];
   public columns: string[];
 
-  constructor(private service: CharactersService) { }
+  constructor(public service: CharactersFacadeService) {
+  }
 
   public ngOnInit() {
     this.columns = Object.keys(new CharacterModel());
-    this.service.getCharacters()
-      .subscribe((characters) => {
-        this.characters = characters;
-      });
+    this.service.loadPage(1);
   }
 
   public handlePageLoad(pageNumber: number): void {
-    // TODO implement
+    this.service.loadPage(pageNumber);
+  }
+
+  public handleSearchTextChange(searchText: string): void {
+    this.service.searchByText(searchText);
   }
 }

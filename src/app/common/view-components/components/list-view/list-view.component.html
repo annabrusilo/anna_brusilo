@@ -2,7 +2,9 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <sl-search></sl-search>
+    <sl-search
+        (searchTextChange)="handleSearchTextChange($event)"
+    ></sl-search>
   </div>
   <div class="col-sm-6 text-sm-right">
     <a routerLink="/add" routerLinkActive="active" class="btn btn-primary mb-3">Add New</a>
