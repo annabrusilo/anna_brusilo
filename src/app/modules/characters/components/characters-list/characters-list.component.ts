@@ -15,7 +15,6 @@ export class CharactersListComponent implements OnInit {
 
   public ngOnInit() {
     this.columns = Object.keys(new CharacterModel());
-    this.service.loadPage(1);
   }
 
   public handlePageLoad(pageNumber: number): void {

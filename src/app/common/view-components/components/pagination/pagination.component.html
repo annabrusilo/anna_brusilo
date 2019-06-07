@@ -2,7 +2,7 @@
   <ul class="pagination justify-content-end">
     <li
         class="page-item"
-        [ngClass]="{disabled: activePageNumber === 1}"
+        [ngClass]="{disabled: pagination.activePage === 1}"
     >
       <a
           class="page-link"
@@ -13,7 +13,7 @@
     </li>
     <li *ngFor="let page of getPages()"
         class="page-item"
-        [ngClass]="{active: page === activePageNumber}"
+        [ngClass]="{active: page === pagination.activePage}"
     >
       <a
           class="page-link"
@@ -21,7 +21,7 @@
       >
         {{ page }}
         <span
-            *ngIf="page === activePageNumber"
+            *ngIf="page === pagination.activePage"
             class="sr-only"
         >
           (current)
@@ -30,7 +30,7 @@
     </li>
     <li
         class="page-item"
-        [ngClass]="{disabled: activePageNumber === numberOfAllPages}"
+        [ngClass]="{disabled: pagination.activePage === pagination.lastPage}"
     >
       <a
           class="page-link"

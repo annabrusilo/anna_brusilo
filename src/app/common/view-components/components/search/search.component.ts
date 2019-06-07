@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.searchTextControl.valueChanges
       .pipe(
         takeWhile(() => this.subscribe),
-        debounceTime(500),
+        debounceTime(200),
       )
       .subscribe((searchText) =>
         this.searchTextChange.emit(searchText),

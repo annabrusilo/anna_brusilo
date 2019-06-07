@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {PaginationDataModel} from '../../../../modules/characters/model/pagination-data.model';
 
 @Component({
   selector: 'sl-pagination',
@@ -6,27 +7,24 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  @Input() public numberOfAllPages = 1;
+  @Input() public pagination: PaginationDataModel = new PaginationDataModel();
   @Output() public pageLoad: EventEmitter<number> = new EventEmitter<number>();
-
-  public activePageNumber: number;
 
   constructor() {
   }
 
   public ngOnInit(): void {
-    this.activePageNumber = 1;
   }
 
   public getPages(): number[] {
-    if (!this.numberOfAllPages || this.numberOfAllPages < 2) {
+    if (!this.pagination.lastPage || this.pagination.lastPage < 2) {
       return [1];
     }
-    if (this.activePageNumber === 1) {
+    if (this.pagination.activePage === 1) {
       return [1, 2];
     }
 
-    return [this.activePageNumber - 1, this.activePageNumber];
+    return [this.pagination.activePage - 1, this.pagination.activePage];
   }
 
   public loadPage(pageNumber: number): void {
@@ -34,14 +32,14 @@ export class PaginationComponent implements OnInit {
   }
 
   public loadPreviousPage(): void {
-    if (this.activePageNumber > 1) {
-      this.loadPage(this.activePageNumber - 1);
+    if (this.pagination.activePage > 1) {
+      this.loadPage(this.pagination.activePage - 1);
     }
   }
 
   public loadNextPage() {
-    if (this.activePageNumber < this.numberOfAllPages) {
-      this.loadPage(this.activePageNumber + 1);
+    if (this.pagination.activePage < this.pagination.lastPage) {
+      this.loadPage(this.pagination.activePage + 1);
     }
   }
 }

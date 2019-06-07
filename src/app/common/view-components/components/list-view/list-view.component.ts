@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {PaginationDataModel} from '../../../../modules/characters/model/pagination-data.model';
 
 @Component({
   selector: 'sl-list-view',
@@ -9,6 +10,7 @@ export class ListViewComponent implements OnInit {
 
   @Input() public data: any[];
   @Input() public columns: string[];
+  @Input() public pagination: PaginationDataModel;
 
   @Output() public pageLoad: EventEmitter<number> = new EventEmitter<number>();
   @Output() public searchTextChange: EventEmitter<string> = new EventEmitter<string>();

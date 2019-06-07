@@ -1,6 +1,7 @@
 <sl-list-view
     [columns]="columns"
     [data]="service.characters$ | async"
+    [pagination]="service.pagination$ | async"
     (pageLoad)="handlePageLoad($event)"
     (searchTextChange)="handleSearchTextChange($event)"
 ></sl-list-view>

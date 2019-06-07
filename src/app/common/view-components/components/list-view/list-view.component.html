@@ -11,11 +11,18 @@
   </div>
 </div>
 
-<sl-data-table
-    [rows]="data"
-    [columns]="columns"
-></sl-data-table>
+<ng-container *ngIf="data && data.length; else noResults">
+  <sl-data-table
+      [rows]="data"
+      [columns]="columns"
+  ></sl-data-table>
 
-<sl-pagination
-    (pageLoad)="handlePageLoad($event)"
-></sl-pagination>
+  <sl-pagination
+      [pagination]="pagination"
+      (pageLoad)="handlePageLoad($event)"
+  ></sl-pagination>
+</ng-container>
+
+<ng-template #noResults>
+  No Results Found
+</ng-template>

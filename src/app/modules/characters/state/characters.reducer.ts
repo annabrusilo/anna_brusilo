@@ -3,17 +3,25 @@ import {CharactersActionInterface} from '../model/characters-action.interface';
 
 export function reducer(state: CharactersStateInterface, action: CharactersActionInterface): CharactersStateInterface {
   switch (action.type) {
-    case CharactersActionTypes.SET_LAST_PAGE_NUMBER: {
-      return {...state, lastPageNumber: action.payload};
-    }
     case CharactersActionTypes.SET_SEARCH_TEXT: {
-      return {...state, searchText: action.payload};
+      return {
+        ...state,
+        searchText: action.payload,
+        pagination: {...state.pagination, activePage: 1}
+      };
     }
     case CharactersActionTypes.SET_SELECTED_PAGE: {
-      return {...state, activePageNumber: action.payload};
+      return {
+        ...state,
+        pagination: {... state.pagination, activePage: action.payload}
+      };
     }
     case CharactersActionTypes.LOAD_CHARACTERS_LIST: {
-      return {...state, characters: action.payload};
+      return {
+        ...state,
+        characters: action.payload.characters,
+        pagination: {...state.pagination, lastPage: action.payload.lastPageNumber},
+      };
     }
     return state;
   }
