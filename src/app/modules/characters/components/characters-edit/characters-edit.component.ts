@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {CharactersService} from '../../services/characters.service';
+import {Component, OnInit} from '@angular/core';
+import {CharactersFacadeService} from '../../services/characters-facade.service';
 
 @Component({
   selector: 'sl-characters-edit',
@@ -8,10 +8,10 @@ import {CharactersService} from '../../services/characters.service';
 })
 export class CharactersEditComponent implements OnInit {
 
-  constructor(private service: CharactersService) { }
+  constructor(private service: CharactersFacadeService) { }
 
-  ngOnInit() {
-    this.service.getCharacters();
+  public ngOnInit(): void {
+    this.service.loadSpecies();
   }
 
 }
