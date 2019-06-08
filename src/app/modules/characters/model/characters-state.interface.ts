@@ -6,4 +6,5 @@ export interface CharactersStateInterface {
   editedCharacter: CharacterModel;
   searchText: string;
   pagination: PaginationDataModel;
+  species: string[];
 }

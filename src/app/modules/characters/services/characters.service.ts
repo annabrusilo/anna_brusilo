@@ -13,15 +13,19 @@ export class CharactersService {
 
   public getCharacters(pageNumber: number = 1, searchText: string): Observable<CharactersResponseInterface> {
     return this.http.get<CharacterModel[]>(`${environment.apiUrl}/characters`, {
-      params: {_page: pageNumber, q: searchText},
+      params: {_page: pageNumber.toString(), q: searchText},
       observe: 'response'
     })
       .pipe(
-        map((response: HttpResponse): CharactersResponseInterface => ({
+        map((response: HttpResponse<CharacterModel[]>): CharactersResponseInterface => ({
           characters: response.body,
-          lastPageNumber: Math.ceil(response.headers.get('X-Total-Count') / 10),
+          lastPageNumber: Math.ceil(+response.headers.get('X-Total-Count') / 10),
         }))
       );
+  }
+
+  public getSpecies(): Observable<string[]> {
+    return this.http.get<string[]>(`${environment.apiUrl}/species`);
   }
 
   public saveCharacter(payload: CharacterModel) {

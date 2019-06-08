@@ -1,5 +1,6 @@
 import {CharactersStateInterface} from '../model/characters-state.interface';
 import {CharactersActionInterface} from '../model/characters-action.interface';
+import {CharactersActionTypes} from './characters.actions';
 
 export function reducer(state: CharactersStateInterface, action: CharactersActionInterface): CharactersStateInterface {
   switch (action.type) {
@@ -21,6 +22,12 @@ export function reducer(state: CharactersStateInterface, action: CharactersActio
         ...state,
         characters: action.payload.characters,
         pagination: {...state.pagination, lastPage: action.payload.lastPageNumber},
+      };
+    }
+    case CharactersActionTypes.LOAD_SPECIES_LIST: {
+      return {
+        ...state,
+        species: action.payload,
       };
     }
     return state;

@@ -3,9 +3,10 @@ export class PaginationDataModel {
   public activePage: number;
 
   constructor(options: {
-    lastPage: number,
-    activePage: number,
+    lastPage?: number,
+    activePage?: number,
   } = {}) {
+    options = options || {};
     this.lastPage = options.lastPage || 1;
     this.activePage = options.activePage || 1;
   }

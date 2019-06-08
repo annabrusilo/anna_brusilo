@@ -11,6 +11,7 @@ import {CharactersService} from './services/characters.service';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CharactersFacadeService} from './services/characters-facade.service';
+import { CharactersEditViewComponent } from './components/characters-edit/characters-edit-view/characters-edit-view.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {CharactersFacadeService} from './services/characters-facade.service';
     CharactersMainComponent,
     CharactersEditComponent,
     CharactersListComponent,
+    CharactersEditViewComponent,
   ],
   providers: [
     CharactersFacadeService,

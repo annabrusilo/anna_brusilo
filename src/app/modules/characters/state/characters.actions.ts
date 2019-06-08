@@ -1,5 +1,6 @@
-const enum CharactersActionTypes {
+export const enum CharactersActionTypes {
   SET_SEARCH_TEXT = 'CHANGE_SEARCH_TEXT',
   SET_SELECTED_PAGE = 'SET_SELECTED_PAGE',
   LOAD_CHARACTERS_LIST = 'LOAD_CHARACTERS_LIST',
+  LOAD_SPECIES_LIST = 'LOAD_SPECIES_LIST',
 }
