@@ -4,12 +4,14 @@ import {CharactersListComponent} from './characters-list.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {CharactersFacadeService} from '../../services/characters-facade.service';
 import {RouterTestingModule} from '@angular/router/testing';
+import {LoadListParamsInterface} from '../../../../model/load-list-params.interface';
 
 describe('CharactersListComponent', () => {
   let component: CharactersListComponent;
   let fixture: ComponentFixture<CharactersListComponent>;
 
   const mockedFacadeService = {
+    setLoadListParams(params: LoadListParamsInterface) {},
   };
 
 
