@@ -1,3 +1,6 @@
 <sl-characters-edit-view
-    [species]="service.species$ | async"
+    #editView
+    [editedCharacter]="editedCharacter"
+    [species]="service.getSpecies$ | async"
+    (saveCharacter)="saveCharacter($event)"
 ></sl-characters-edit-view>

@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {takeWhile} from 'rxjs/operators';
-import {debounceTime} from 'rxjs/internal/operators';
+import {debounceTime, takeWhile} from 'rxjs/operators';
 
 @Component({
   selector: 'sl-search',
@@ -10,10 +9,11 @@ import {debounceTime} from 'rxjs/internal/operators';
 })
 export class SearchComponent implements OnInit, OnDestroy {
   @Output() public searchTextChange: EventEmitter<string> = new EventEmitter<string>();
-  public searchTextControl:  FormControl;
+  public searchTextControl: FormControl;
   private subscribe = true;
 
-  constructor() { }
+  constructor() {
+  }
 
   public ngOnInit(): void {
     this.searchTextControl = new FormControl();
@@ -34,5 +34,4 @@ export class SearchComponent implements OnInit, OnDestroy {
   public ngOnDestroy(): void {
     this.subscribe = false;
   }
-
 }

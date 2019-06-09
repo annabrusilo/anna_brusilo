@@ -6,7 +6,7 @@
     >
       <a
           class="page-link"
-          (click)="loadPreviousPage()"
+          (click)="selectPreviousPage()"
       >
         Previous
       </a>
@@ -17,7 +17,7 @@
     >
       <a
           class="page-link"
-          (click)="loadPage(page)"
+          (click)="onSelectPage(page)"
       >
         {{ page }}
         <span
@@ -34,7 +34,7 @@
     >
       <a
           class="page-link"
-          (click)="loadNextPage()"
+          (click)="selectNextPage()"
       >
         Next
       </a>

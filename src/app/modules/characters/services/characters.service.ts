@@ -5,15 +5,21 @@ import {CharacterModel} from '../model/character.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {CharactersResponseInterface} from '../model/characters-response.interface';
+import {LoadListParamsInterface} from '../../../model/load-list-params.interface';
 
 @Injectable()
 export class CharactersService {
   constructor(private http: HttpClient) {
   }
 
-  public getCharacters(pageNumber: number = 1, searchText: string): Observable<CharactersResponseInterface> {
+  public getCharacters(params: LoadListParamsInterface): Observable<CharactersResponseInterface> {
+    const requestParams = {_page: params.activePage.toString(), q: params.searchText};
+    if (params.sortParams) {
+      requestParams['_sort'] = params.sortParams.column;
+      requestParams['_order'] = params.sortParams.order;
+    }
     return this.http.get<CharacterModel[]>(`${environment.apiUrl}/characters`, {
-      params: {_page: pageNumber.toString(), q: searchText},
+      params: requestParams,
       observe: 'response'
     })
       .pipe(
@@ -24,8 +30,8 @@ export class CharactersService {
       );
   }
 
-  public getSpecies(): Observable<string[]> {
-    return this.http.get<string[]>(`${environment.apiUrl}/species`);
+  public getCharacter(id: number): Observable<CharacterModel> {
+    return this.http.get<CharacterModel>(`${environment.apiUrl}/characters/${id}`);
   }
 
   public saveCharacter(payload: CharacterModel) {
@@ -36,11 +42,20 @@ export class CharactersService {
     }
   }
 
-  public updateCharacter(payload: CharacterModel) {
-    this.http.put(`${environment.apiUrl}/characters`, payload);
+  public updateCharacter(payload: CharacterModel): Observable<CharacterModel> {
+    return this.http.put<CharacterModel>(`${environment.apiUrl}/characters/${payload.id}`, payload);
   }
 
-  public createCharacter(payload: CharacterModel) {
-    this.http.post(`${environment.apiUrl}/characters`, payload);
+  public createCharacter(payload: CharacterModel): Observable<CharacterModel> {
+    return this.http.post<CharacterModel>(`${environment.apiUrl}/characters`, payload);
+  }
+
+  public delete(id: number): Observable<{}> {
+    return this.http.delete(`${environment.apiUrl}/characters/${id}`);
+  }
+
+
+  public getSpecies(): Observable<string[]> {
+    return this.http.get<string[]>(`${environment.apiUrl}/species`);
   }
 }

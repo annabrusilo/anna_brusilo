@@ -1,27 +1,47 @@
-<form [formGroup]="characterForm">
+<form *ngIf="characterForm" [formGroup]="characterForm" (ngSubmit)="onSave()" slFocusOonFirstInvalidElement>
   <div
-   class="form-group">
-    <label> Name </label>
-    <input type="text" class="form-control" formControlName="name">
+      class="form-group"
+  >
+    <label class="required"> Name </label>
+    <input type="text" class="form-control" formControlName="name"
+           [ngClass]="{'is-invalid': controls.name.invalid && (submitted || controls.name.touched)}"
+    >
+    <div *ngIf="controls?.name?.errors?.required && (submitted || controls.name.touched)" class="invalid-feedback">
+      This field is required
+    </div>
   </div>
   <div class="form-group">
-    <label> Species </label>
-    <select class="form-control" formControlName="species">
-      <option value disabled selected> </option>
-      <option *ngFor="let option of species" [value]="option"> {{ option }} </option>
+    <label class="required"> Species </label>
+    <select class="form-control" formControlName="species"
+            [ngClass]="{'is-invalid': controls.species.invalid && (submitted || controls.species.touched)}"
+    >
+      <option value disabled selected></option>
+      <option *ngFor="let option of species" [value]="option"> {{ option }}</option>
     </select>
+    <div *ngIf="controls?.species?.errors?.required && (submitted || controls.species.touched)"
+         class="invalid-feedback">
+      This field is required
+    </div>
   </div>
   <div class="form-group">
-    <label> Gender</label>
-  <div *ngFor="let gender of genders" class="form-check">
-    <input class="form-check-input" type="radio" [value]="gender" formControlName="gender">
-    <label class="form-check-label">
-      {{ gender }}
-    </label>
-  </div>
+    <label class="required"> Gender </label>
+    <div *ngFor="let gender of genders" class="form-check">
+      <input class="form-check-input" type="radio" [value]="gender" formControlName="gender"
+             [ngClass]="{'is-invalid': controls.gender.invalid && (submitted || controls.gender.touched)}"
+      >
+      <label class="form-check-label text-capitalize">
+        {{ gender }}
+      </label>
+    </div>
+    <div *ngIf="controls?.gender?.errors?.required && (submitted || controls.gender.touched)"
+         class="invalid-feedback d-block">
+      This field is required
+    </div>
   </div>
   <div class="form-group">
     <label> Homeworld </label>
     <input type="text" class="form-control" formControlName="homeworld">
   </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="savingInProgress">Save</button>
 </form>

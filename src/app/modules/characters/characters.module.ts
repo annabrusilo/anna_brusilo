@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import {CharactersFacadeService} from './services/characters-facade.service';
 import { CharactersEditViewComponent } from './components/characters-edit/characters-edit-view/characters-edit-view.component';
+import {FocusOnFirstInvalidElementDirective} from '../../directives/focus-on-first-invalid-element.directive';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { CharactersEditViewComponent } from './components/characters-edit/charac
     CharactersEditComponent,
     CharactersListComponent,
     CharactersEditViewComponent,
+    FocusOnFirstInvalidElementDirective,
   ],
   providers: [
     CharactersFacadeService,

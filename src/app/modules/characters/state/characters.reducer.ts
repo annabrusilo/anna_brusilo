@@ -14,7 +14,7 @@ export function reducer(state: CharactersStateInterface, action: CharactersActio
     case CharactersActionTypes.SET_SELECTED_PAGE: {
       return {
         ...state,
-        pagination: {... state.pagination, activePage: action.payload}
+        pagination: {...state.pagination, activePage: action.payload}
       };
     }
     case CharactersActionTypes.LOAD_CHARACTERS_LIST: {
@@ -30,6 +30,19 @@ export function reducer(state: CharactersStateInterface, action: CharactersActio
         species: action.payload,
       };
     }
-    return state;
+    case CharactersActionTypes.SET_LOAD_LIST_PARAMS: {
+      return {
+        ...state,
+        pagination: {...state.pagination, activePage: action.payload.activePage},
+        searchText: action.payload.searchText,
+      };
+    }
+    case CharactersActionTypes.SET_SORT_PARAMS: {
+      return {
+        ...state,
+        sortParams: action.payload,
+      };
+    }
+      return state;
   }
 }

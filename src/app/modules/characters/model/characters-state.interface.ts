@@ -1,10 +1,11 @@
 import {CharacterModel} from './character.model';
-import {PaginationDataModel} from './pagination-data.model';
+import {PaginationDataModel} from '../../../model/pagination-data.model';
+import {SortParamsInterface} from '../../../model/sort-params.interface';
 
 export interface CharactersStateInterface {
   characters: CharacterModel[];
-  editedCharacter: CharacterModel;
   searchText: string;
   pagination: PaginationDataModel;
+  sortParams: SortParamsInterface;
   species: string[];
 }

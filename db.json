@@ -139,38 +139,108 @@
     },
     {
       "id": 15,
-      "name": "Finn",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": ""
+      "name": "Unidentified life form",
+      "species": "Kaleesh",
+      "gender": "n/a",
+      "homeworld": "Deep Space 9"
     },
     {
       "id": 16,
-      "name": "Rey",
+      "name": "Mr. Worf",
+      "species": "Neimodian",
+      "gender": "male",
+      "homeworld": "A Klingon Homeworld"
+    },
+    {
+      "id": 17,
+      "name": "Lt. Cmdr. Data",
+      "species": "Droid",
+      "gender": "male",
+      "homeworld": "The Colony"
+    },
+    {
+      "id": 18,
+      "name": "Cpt. Picard",
       "species": "Human",
+      "gender": "male",
+      "homeworld": "Earth"
+    },
+    {
+      "id": 19,
+      "name": "William T. Riker",
+      "species": "Human",
+      "gender": "male",
+      "homeworld": "Earth"
+    },
+    {
+      "id": 20,
+      "name": "Deana Troi",
+      "species": "Quermian",
+      "gender": "female",
+      "homeworld": "Betazoid"
+    },
+    {
+      "id": 21,
+      "name": "Wesley Crusher",
+      "species": "Human",
+      "gender": "male",
+      "homeworld": "Space"
+    },
+    {
+      "id": 22,
+      "name": "Dr. Crusher",
+      "species": "Human",
+      "gender": "female",
+      "homeworld": "Earth"
+    },
+    {
+      "id": 23,
+      "name": "Dr. Sung",
+      "species": "Kaleesh",
+      "gender": "male",
+      "homeworld": "Some random class M planet"
+    },
+    {
+      "id": 25,
+      "name": "Tasha Yar",
+      "species": "Rodian",
+      "gender": "female",
+      "homeworld": "Kardash"
+    },
+    {
+      "id": 32,
+      "name": "A random alien",
+      "species": "Kaminoan",
+      "gender": "n/a",
+      "homeworld": ""
+    },
+    {
+      "id": 33,
+      "name": "Enterprise",
+      "species": "Neimodian",
       "gender": "female",
       "homeworld": ""
     },
     {
-      "id": 17,
-      "name": "Poe Dameron",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": ""
-    },
-    {
-      "id": 18,
-      "name": "Kylo Ren",
-      "species": "Human",
-      "gender": "male",
-      "homeworld": ""
-    },
-    {
-      "id": 19,
-      "name": "BB8",
-      "species": "Droid",
+      "id": 36,
+      "name": "Energy Fluctuation",
+      "species": "Besalisk",
       "gender": "n/a",
       "homeworld": ""
+    },
+    {
+      "id": 38,
+      "name": "Ambasador Spock",
+      "species": "Vulptereen",
+      "gender": "male",
+      "homeworld": "Vulcan"
+    },
+    {
+      "id": 39,
+      "name": "Q",
+      "species": "Twi'lek",
+      "gender": "n/a",
+      "homeworld": "Space"
     }
   ]
 }

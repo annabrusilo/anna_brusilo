@@ -1,5 +1,15 @@
 table thead tr th {
   text-transform: capitalize;
+  cursor: pointer;
+
+  &.column-sort__asc:after {
+    content: '▲';
+
+  }
+
+  &.column-sort__desc:after {
+    content: '▼';
+  }
 }
 
 tr td:first-child {

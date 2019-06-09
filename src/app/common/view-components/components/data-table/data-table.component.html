@@ -1,7 +1,13 @@
 <table class="table table-bordered table-hover">
   <thead class="thead-light">
   <tr>
-    <th *ngFor="let column of columns" scope="col">{{column}}</th>
+    <th *ngFor="let column of columns"
+        scope="col"
+        (click)="onSort(column)"
+        [ngClass]="{'column-sort__asc': sortParams?.column === column && sortParams?.order === 'asc',
+        'column-sort__desc': sortParams?.column === column && sortParams?.order === 'desc'}"
+    >{{column}}
+    </th>
     <th scope="col">Actions</th>
   </tr>
   </thead>
@@ -15,10 +21,10 @@
     </td>
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="Actions">
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary" (click)="onEditElement(row)">
           <i class="fa fa-pencil" aria-hidden="true"></i> Edit
         </button>
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" (click)="onRemoveElement(row)">
           <i class="fa fa-trash-o" aria-hidden="true"></i> Remove
         </button>
       </div>

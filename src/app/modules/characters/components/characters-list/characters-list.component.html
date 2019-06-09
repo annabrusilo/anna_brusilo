@@ -1,7 +1,11 @@
 <sl-list-view
     [columns]="columns"
-    [data]="service.characters$ | async"
-    [pagination]="service.pagination$ | async"
-    (pageLoad)="handlePageLoad($event)"
-    (searchTextChange)="handleSearchTextChange($event)"
+    [data]="service.getCharacters$ | async"
+    [pagination]="service.getPagination$ | async"
+    [sortParams]="service.getSortParams$ | async"
+    (selectPage)="onSelectPage($event)"
+    (searchTextChange)="onSearchTextChange($event)"
+    (removeElement)="onRemoveElement($event)"
+    (editElement)="onEditElement($event)"
+    (sort)="onSort($event)"
 ></sl-list-view>
